@@ -1,3 +1,4 @@
+import jwt from "jsonwebtoken"
 
 export default class UserController{
     constructor(){
@@ -5,7 +6,8 @@ export default class UserController{
     }
     signUp(req,res){
         try {
-            res.status(200).send("signup")
+            // console.log("hi")
+            res.render("signup_login")
         } catch (error) {
             console.log(error)
         }

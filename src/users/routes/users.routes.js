@@ -6,10 +6,10 @@ const userRouter = express.Router()
 const userController = new UserController
 
 userRouter.post("/login",(req,res)=>{
-    userController.signUp(req,res)
+   
 })
-userRouter.post("/signup",(req,res)=>{
-    res.status(200).send("signup")
+userRouter.get("/signup",(req,res)=>{
+    userController.signUp(req,res)
 })
 
 export default userRouter
