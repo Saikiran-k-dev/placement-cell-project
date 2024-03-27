@@ -9,6 +9,7 @@ import bodyParser from "body-parser";
 
 import userRouter from "./src/features/users/routes/users.routes.js";
 import studentRouter from "./src/features/student/routes/student.routes.js";
+import interviewRouter from "./src/features/interview/routes/interview.routes.js";
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.set("views", path.join(path.resolve(), "src", "views"));
 
 app.use("/api/placementcell/users", userRouter);
 app.use("/api/placementcell/students", studentRouter)
+app.use("/api/placementcell/interviews",interviewRouter)
 
 // Serve static files with the correct MIME types
 app.use(express.static(path.join(path.resolve(), "src", "views")))

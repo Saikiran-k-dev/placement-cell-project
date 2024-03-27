@@ -17,15 +17,16 @@ export default class StudentRepositories{
         return await this.getAllStudent()
     }
 
-    async updateExistingStudent(studentId,data){
-        let isStudentExist = await StudentModel.findById(studentId)
-        if(isStudentExist){
-            isStudentExist = data
-            await isStudentExist.save()
-            return await this.getAllStudent()
-        } 
+    async updateExistingStudent(studentId, data) {
+        let student = await StudentModel.findOne({ _id: new ObjectId(studentId) });
+        if (student) {
+            Object.assign(student, data);
+            await student.save();
+            return await this.getAllStudent();
+        } else {
+            return null; 
+        }
     }
-
     async deleteExistingStudent(studentId){
         const isStudentExist = await StudentModel.findById(studentId)
         if(isStudentExist){
