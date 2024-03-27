@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import bcrypt from "bcrypt"
+
 
 const userSchema = new mongoose.Schema(
 	{
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
 			unique: true,
 			required: true,
 		},
-		passwordHash: {
+		password: {
 			type: String,
 			required: true,
 		},

@@ -3,5 +3,5 @@ import app from "./index.js"
 
 app.listen(process.env.PORT,()=>{
     connectDB()
-    console.log("server is listning at port 3000")
+    console.log("server is listning at port 3200")
 })

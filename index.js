@@ -4,13 +4,17 @@ import path from "path";
 import ejsLayout from "express-ejs-layouts";
 import session from "express-session";
 import cookieParser from "cookie-parser";
-import userRouter from "./src/users/routes/users.routes.js";
+import cors from "cors"
+import bodyParser from "body-parser";
+
+import userRouter from "./src/features/users/routes/users.routes.js";
+import studentRouter from "./src/features/student/routes/student.routes.js";
 
 dotenv.config();
 
 const app = express();
-
-app.use(express.urlencoded({ extended: true }));
+app.use(cors())
+app.use(bodyParser.json())
 app.use(ejsLayout);
 app.use(cookieParser());
 app.use(
@@ -25,7 +29,9 @@ app.use(
 app.set("view engine", "ejs");
 app.set("views", path.join(path.resolve(), "src", "views"));
 
+
 app.use("/api/placementcell/users", userRouter);
+app.use("/api/placementcell/students", studentRouter)
 
 // Serve static files with the correct MIME types
 app.use(express.static(path.join(path.resolve(), "src", "views")))
