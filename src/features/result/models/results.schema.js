@@ -1,15 +1,15 @@
 import mongoose  from "mongoose";
 
-const resultSchema = new Schema({
+const resultSchema = new mongoose.Schema({
     student: {
-      type: Schema.Types.ObjectId,
-      ref: 'Student',
-      required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Student'
+      // required: true
     },
     interview: {
-      type: Schema.Types.ObjectId,
-      ref: 'Interview',
-      required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Interview'
+      // required: true
     },
     result: {
       type: String,

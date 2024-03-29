@@ -16,7 +16,7 @@ export default class UserController{
     }
     async postSignup(req,res){
         const body = req.body
-
+        console.log(body)
         // Hasing the password and changing the password value inside object
         const hashedPass = await bcrypt.hash(body.password,12)
         body.password = hashedPass
